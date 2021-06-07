@@ -1,0 +1,22 @@
+image: docker:18-dind
+
+stages:
+    -image
+
+services:
+   - name: docker:18-dind
+     alias: thedockerhost
+
+variables:
+    DOCKER_HOST: tcp://thedockerhost:2375/
+    # Use the overlayfs driver for improved performance:
+    DOCKER_DRIVER: overlay2
+    DOCKER_TLS_CERTDIR: ""
+
+imageFrontend:
+    stage: image
+    script: 
+        - cd kwetter-frontend
+        - docker build . -t timgroenen/kwetterfrontend
+        - docker login --username $dockerUsername --password $dockerPassword
+        - docker push timgroenen/kwetterfrontend
