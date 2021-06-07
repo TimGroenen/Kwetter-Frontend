@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AuthService } from 'src/app/services/auth.service';
+import { AuthService } from 'src/app/services/auth/auth.service';
 
 @Component({
 	selector: 'app-login',
@@ -10,7 +10,7 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class LoginComponent implements OnInit {
 	public incorrectAttempt = false;
-	private loginSuccess = false;
+	public unprocessableEntity = false;
 	constructor(private router: Router, private authService: AuthService) { }
 
 	ngOnInit() {
@@ -18,13 +18,13 @@ export class LoginComponent implements OnInit {
 
 	onSubmit(formData: NgForm) {
 		this.authService.login(formData.value.username, formData.value.password).subscribe(response => {
-			if (response.status) {
-                console.log("Login successful!");
-				this.authService.setAccountToken(response.headers.get('Authorization'));
+			if (response.ok) {
+                console.log("Login successful! Token received: " + response.headers.get("Authorization"));
+				this.authService.setAccountToken(response.headers.get("Authorization") || "");
 				this.router.navigateByUrl('/home');
 			}
 		}, error => {
-				this.incorrectAttempt = true;
+			this.incorrectAttempt = true;
 		});
 	}
 }

@@ -4,13 +4,19 @@
     </div>
     <form #f="ngForm" (ngSubmit)="onSubmit(f)" class="card-body">
         <div class="form-group">
-            <label for="username">Username</label>
-            <input required ngModel name="username" id="username" #username="ngModel" type="text" class="form-control">
+            <label for="username">Email</label>
+            <input required ngModel name="username" id="username" #username="ngModel" type="text" class="form-control" required>
+            <br>
+            <div class="alert alert-danger" *ngIf="(username.touched || username.dirty) && !username.valid">Enter an email</div>
         </div>
+        <br>
         <div class="form-group">
             <label for="password">Password</label>
-            <input required ngModel name="password" id="password" #password="ngModel" type="password" class="form-control">
+            <input required ngModel name="password" id="password" #password="ngModel" type="password" class="form-control" required>
+            <br>
+            <div class="alert alert-danger" *ngIf="(password.touched || password.dirty) && !password.valid">Enter a password</div>
         </div>
+        <br>
         <div class="alert alert-danger" *ngIf="incorrectAttempt">Entered information is incorrect</div>
         <button class="btn btn-primary">Login</button>
     </form>

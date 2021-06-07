@@ -4,15 +4,18 @@
     </div>
     <form #f="ngForm" (ngSubmit)="onSubmit(f)" autocomplete="off" class="card-body">
         <div class="form-group">
-            <label for="username">Username</label>
+            <label for="username">Email</label>
             <input required ngModel name="username" id="username" #username="ngModel" type="text" class="form-control">
-            <div class="alert alert-danger" *ngIf="username.touched && !username.valid">Enter a username</div>
-            <div class="alert alert-danger" *ngIf="usernameTaken">Enter a username</div>
+            <br>
+            <div class="alert alert-danger" *ngIf="(username.touched || username.dirty) && !username.valid">Enter an email</div>
+            <div class="alert alert-danger" *ngIf="usernameTaken">Email is taken</div>
         </div>
+        <br>
         <div class="form-group">
             <label for="password">Password</label>
             <input required ngModel name="password" id="password" #password="ngModel" type="password" class="form-control">
-            <div class="alert alert-danger" *ngIf="password.touched && !password.valid">Enter a password</div>
+            <br>
+            <div class="alert alert-danger" *ngIf="(password.touched || password.dirty) && !password.valid">Enter a password</div>
         </div>
         <button class="btn btn-primary">Register</button>
     </form>
