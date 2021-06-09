@@ -11,6 +11,10 @@
                 <div class="col username">
                     <h5>{{profile?.name}}</h5>
                 </div>
+                <div class="col followButton" *ngIf="!isMyProfile">
+                    <button class="btn btn-primary floatRight" (click)="followUser()" *ngIf="!isFollowing">Follow</button>
+                    <button class="btn btn-primary floatRight" (click)="unfollowUser()" *ngIf="isFollowing">Unfollow</button>
+                </div>
             </div>
         </div>
     </div>

@@ -38,14 +38,14 @@ export class ProfileService {
         return this.httpClient.get(this.url + "/account/" + id, {observe: "response"}) as Observable<HttpResponse<Profile>>;
     }
 
-    public followUser(id: number, followedId: number): Observable<HttpResponse<string>> {
+    public followUser(id: number, followedId: number): Observable<HttpResponse<any>> {
         let follow = new Follow(id, followedId);
-        return this.httpClient.post(this.url + "/follow", follow, {observe: "response"}) as Observable<HttpResponse<string>>;
+        return this.httpClient.post(this.url + "/follow", follow, {observe: "response"});
     }
 
-    public unfollowUser(id: number, unfollowedId: number): Observable<HttpResponse<string>> {
+    public unfollowUser(id: number, unfollowedId: number): Observable<HttpResponse<any>> {
         let unfollow = new Follow(id, unfollowedId);
-        return this.httpClient.post(this.url + "/unfollow", unfollow, {observe: "response"}) as Observable<HttpResponse<string>>;
+        return this.httpClient.post(this.url + "/unfollow", unfollow, {observe: "response"});
     }
 
     public getFollowed(id: number): Observable<HttpResponse<Profile[]>> {

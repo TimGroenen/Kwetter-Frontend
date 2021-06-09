@@ -10,3 +10,11 @@
 .followingCard {
     max-width: 200px;
 }
+
+.followButton {
+    padding-top: 150px;
+}
+
+.floatRight {
+    float: right;
+}
