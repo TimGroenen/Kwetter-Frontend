@@ -1,0 +1,50 @@
+<div class="row">
+    <div class="col">
+        <div class="card mt-2">
+            <div class="card-header">
+                <h5>Account information</h5>
+            </div>
+            <!-- View information -->
+            <div class="card-body" *ngIf="!isEditing">
+                <ul>
+                    <li>Name: {{profile?.name}}</li>
+                    <li>Bio: {{profile?.bio}}</li>
+                    <li>Location: {{profile?.location}}</li>
+                    <li>Website: {{profile?.website}}</li>
+                </ul>
+                <button class="btn btn-primary m-2" (click)="toggleEditing()">Edit information</button>
+            </div>
+            <!-- Edit information -->
+            <div class="card-body" *ngIf="isEditing">
+                <form #f="ngForm" (ngSubmit)="onSubmit(f)" autocomplete="off" class="card-body">
+                    <div class="form-group">
+                        <label for="name">Name <i>(This will be shown on your profile)</i></label>
+                        <input required [ngModel]="profile?.name" name="name" id="name" #name="ngModel" type="text" class="form-control">
+                        <br>
+                        <div class="alert alert-danger" *ngIf="(name.touched || name.dirty) && !name.valid">Enter a name for your profile</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="bio">Bio <i>({{bioRef.value.length}}/160 characters)</i></label>
+                        <input required [ngModel]="profile?.bio" #bioRef name="bio" id="bio" #bio="ngModel" type="textarea" class="form-control" maxlength="160">
+                        <br>
+                        <div class="alert alert-danger" *ngIf="(bio.touched || bio.dirty) && !bio.valid">Enter a bio for your profile</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="location">Location</label>
+                        <input required [ngModel]="profile?.location" name="location" id="location" #location="ngModel" type="text" class="form-control">
+                        <br>
+                        <div class="alert alert-danger" *ngIf="(location.touched || location.dirty) && !location.valid">Enter a location for your profile</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="website">Website</label>
+                        <input required [ngModel]="profile?.website" name="website" id="website" #website="ngModel" type="text" class="form-control">
+                        <br>
+                        <div class="alert alert-danger" *ngIf="(website.touched || website.dirty) && !website.valid">Enter a website for your profile</div>
+                    </div>
+                    <button class="btn btn-primary">Save information</button>
+                </form>
+                <button class="btn btn-danger m-2" (click)="toggleEditing()">Stop editing</button>
+            </div>
+        </div>
+    </div>
+</div>

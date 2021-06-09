@@ -29,7 +29,7 @@ export class NavbarComponent implements OnInit {
         this.profile = profileTemp;
       }
       
-      if (this.currentRoute == '/login' || this.currentRoute == '/register')
+      if (this.currentRoute == '/login' || this.currentRoute == '/register' || this.currentRoute == '/forbidden')
       {
         this.showNavBar = false;
       } else {

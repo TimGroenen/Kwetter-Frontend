@@ -15,7 +15,7 @@ export class AccessGuardService {
           if (loggedIn) {
               return true;
           } else {
-              this.router.navigate(['/login']);
+              this.router.navigate(['/forbidden']);
           }
       }
       return true;

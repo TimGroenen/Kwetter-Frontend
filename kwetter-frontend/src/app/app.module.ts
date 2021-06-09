@@ -12,6 +12,8 @@ import { AuthorizationInterceptorService } from './services/http-interceptor/aut
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
+import { EditProfileComponent } from './components/edit-profile/edit-profile.component';
+import { ForbiddenComponent } from './components/forbidden/forbidden.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
     RegisterComponent,
     NavbarComponent,
     ProfileComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    EditProfileComponent,
+    ForbiddenComponent
   ],
   imports: [
     BrowserModule,
