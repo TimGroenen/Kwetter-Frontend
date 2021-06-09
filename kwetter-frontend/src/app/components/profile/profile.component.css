@@ -6,3 +6,7 @@
 .username {
     padding-top: 100px;
 }
+
+.followingCard {
+    max-width: 200px;
+}

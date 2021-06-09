@@ -16,10 +16,14 @@ export class ProfileService {
         sessionStorage.setItem('profile', JSON.stringify(profile))
     }
 
-    public getProfile(): Profile | null {
+    public getProfile(): Profile | null{
         let pString = sessionStorage.getItem('profile')
         if (pString == null) return null;
         return JSON.parse(pString);
+    }
+
+    public removeProfile() {
+        sessionStorage.removeItem('profile');
     }
 
     public updateProfile(profile: Profile): Observable<HttpResponse<Profile>> {

@@ -61,8 +61,8 @@
             <div class="card-body">
                 <div class="row">
                     <div class="col" *ngIf="following?.length == 0"><p>No users followed...</p></div>
-                    <div class="col" *ngFor="let p of following" [routerLink]="//profile/{{p.id}}">
-                        <p>{{p.name}}</p>
+                    <div class="col card followingCard m-2" *ngFor="let p of following">
+                        <p><a href="/profile/{{p.id}}">{{p.name}}</a></p>
                     </div>
                 </div>
             </div>

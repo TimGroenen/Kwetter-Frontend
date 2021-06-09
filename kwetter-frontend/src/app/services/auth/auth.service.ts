@@ -11,7 +11,6 @@ import { Auth } from '../../models/auth/auth';
 export class AuthService {
     private accountUrl = 'http://localhost:8080/api/user';
     private loggedInUsername = "";
-    private loggedInUser = null;
 
     constructor(private httpClient: HttpClient) { }
 
@@ -27,6 +26,22 @@ export class AuthService {
 
     public removeAccountToken() {
         sessionStorage.removeItem('token');
+    }
+
+    public setAccount(acc: Account) {
+        sessionStorage.setItem('account', JSON.stringify(acc));
+    }
+
+    public getAccount(): Account | null {
+        let acc = sessionStorage.getItem('account')
+
+        if(acc == null) return null;
+
+        return JSON.parse(acc);
+    }
+
+    public removeAccount() {
+        sessionStorage.removeItem('account');
     }
 
     public getLoggedInUsername(): String {
@@ -49,5 +64,10 @@ export class AuthService {
     public register(username: string, name: string, password: string): Observable<HttpResponse<Account>> {
         let auth = new Auth(username, password, name);
         return this.httpClient.post<Account>(this.accountUrl + "/register", auth, { observe: 'response' });
+    }
+
+    public getAccountByEmail(email: string): Observable<HttpResponse<Account>> {
+        let auth = new Auth(email, "", "");
+        return this.httpClient.post<Account>(this.accountUrl + "/email", auth, { observe: "response" });
     }
 }
