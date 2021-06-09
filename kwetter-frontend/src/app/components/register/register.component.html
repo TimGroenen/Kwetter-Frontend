@@ -10,7 +10,12 @@
             <div class="alert alert-danger" *ngIf="(username.touched || username.dirty) && !username.valid">Enter an email</div>
             <div class="alert alert-danger" *ngIf="usernameTaken">Email is taken</div>
         </div>
-        <br>
+        <div class="form-group">
+            <label for="name">name <i>(This will be shown on your profile)</i></label>
+            <input required ngModel name="name" id="name" #name="ngModel" type="text" class="form-control">
+            <br>
+            <div class="alert alert-danger" *ngIf="(name.touched || name.dirty) && !name.valid">Enter a name for your profile</div>
+        </div>
         <div class="form-group">
             <label for="password">Password</label>
             <input required ngModel name="password" id="password" #password="ngModel" type="password" class="form-control">

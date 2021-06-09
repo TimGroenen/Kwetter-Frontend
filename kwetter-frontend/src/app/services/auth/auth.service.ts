@@ -2,6 +2,7 @@ import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { Observable } from 'rxjs';
+import { Account } from 'src/app/models/account/account';
 import { Auth } from '../../models/auth/auth';
 
 @Injectable({
@@ -45,8 +46,8 @@ export class AuthService {
         return this.httpClient.post(this.accountUrl + "/login", auth, { observe: 'response' });
     }
 
-    public register(username: string, password: string): Observable<HttpResponse<any>> {
-        let auth = new Auth(username, password);
+    public register(username: string, name: string, password: string): Observable<HttpResponse<Account>> {
+        let auth = new Auth(username, password, name);
         return this.httpClient.post<Account>(this.accountUrl + "/register", auth, { observe: 'response' });
     }
 }

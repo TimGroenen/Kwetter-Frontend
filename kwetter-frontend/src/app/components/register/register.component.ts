@@ -17,7 +17,7 @@ export class RegisterComponent implements OnInit {
 
     onSubmit(formData: NgForm) {
         // Register user via service
-        this.authService.register(formData.value.username, formData.value.password).subscribe(response => {
+        this.authService.register(formData.value.username, formData.value.name, formData.value.password).subscribe(response => {
             if (response.body) {
                 this.router.navigateByUrl('/login');
             }
