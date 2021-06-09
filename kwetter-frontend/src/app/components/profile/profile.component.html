@@ -1,3 +1,71 @@
-<p>profile works!</p>
+<div class="row">
+    <div class="col">
+        <!-- Name -->
+        <div class="card mt-2 mb-2 p-2">
+            <div class="row">
+                <!-- Profile pic -->
+                <div class="col profilePicContainer">
+                    <img src="assets/blank-profile-picture.png" alt="profile pic" class="img-thumbnail float-left img-fluid">
+                </div>
+                <!-- Profile name -->
+                <div class="col username">
+                    <h5>{{profile?.name}}</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col">
+        <!-- tweets-->
+        <div class="card">
+            <div class="card-header">
+                <h6>Tweets</h6>
+            </div>
+            <div class="card-body">
+                <p><i>Tweets go here</i></p>
+            </div>
+        </div>
+    </div>
+    <div class="col">
+        <!-- Details -->
+        <div class="card mb-2">
+            <div class="card-header">
+                <h6>Details</h6>
+            </div>
+            <div class="card-body">
+                <ul>
+                    <li>Location: {{profile?.location}}</li>
+                    <li>website: <a href="https://{{profile?.website}}">{{profile?.website}}</a></li>
+                    <li>bio: {{profile?.bio}}</li>
+                </ul>
+            </div>
+        </div>
 
-<p>Profile name: {{profile?.name}}</p>
+        <!-- Following followers tweets-->
+        <div class="card mb-2">
+            <div class="card-body">
+                <ul>
+                    <li><a href="#">{{following?.length}} following</a></li>
+                    <li><a href="#">{{followers?.length}} followers</a></li>
+                    <li><a href="#">tweets</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Following users -->
+        <div class="card mb-2">
+            <div class="card-header">
+                <h6>Following</h6>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col" *ngIf="following?.length == 0"><p>No users followed...</p></div>
+                    <div class="col" *ngFor="let p of following" [routerLink]="//profile/{{p.id}}">
+                        <p>{{p.name}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
