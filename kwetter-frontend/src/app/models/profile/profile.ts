@@ -5,6 +5,7 @@ export class Profile {
     bio: string;
     location: string;
     website: string;
+    //image: File;
 
     constructor (id: number, accountId: number, name: string, bio: string, location: string, website: string) {
         this.id = id;
@@ -13,6 +14,7 @@ export class Profile {
         this.bio = bio;
         this.location = location;
         this.website = website;
+        //this.image = image;
     }
 
 }

@@ -13,8 +13,11 @@ import { ProfileService } from 'src/app/services/profile/profile.service';
 export class EditProfileComponent implements OnInit {
     public profile?: Profile;
     public isEditing = false;
+    //selectedFile: File;
 
-    constructor(private authService: AuthService, private profileService: ProfileService, private router: Router, private route: ActivatedRoute) { }
+    constructor(private authService: AuthService, private profileService: ProfileService, private router: Router, private route: ActivatedRoute) {
+        //this.selectedFile = new File([], "Empty file");
+    }
 
     ngOnInit(): void {
         this.route.params.subscribe(params => {
@@ -39,6 +42,19 @@ export class EditProfileComponent implements OnInit {
             this.router.navigateByUrl('/notFound');
         });
     }
+
+    /*
+
+    onFileChanged(imageInput: any) {
+        const file: File = imageInput.files[0];
+        const reader = new FileReader();
+
+        reader.addEventListener('load', (event: any) => {
+            this.selectedFile = file;
+        });
+    }
+    
+    */
 
     onSubmit(formData: NgForm) {
         if(this.profile) {

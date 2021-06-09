@@ -41,6 +41,12 @@
                         <br>
                         <div class="alert alert-danger" *ngIf="(website.touched || website.dirty) && !website.valid">Enter a website for your profile</div>
                     </div>
+                    <!--
+                    <div class="form-group">
+                        <label for="image">Profile picture</label>
+                        <input type="file" accept="image/**" #imageInput [ngModel]="profile?.image" (change)="onFileChanged(imageInput)" required name="image">
+                    </div>
+                    -->
                     <button class="btn btn-primary">Save information</button>
                 </form>
                 <button class="btn btn-danger m-2" (click)="toggleEditing()">Stop editing</button>
