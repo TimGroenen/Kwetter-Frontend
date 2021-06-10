@@ -27,7 +27,7 @@
                 <h6>Tweets</h6>
             </div>
             <div class="card-body">
-                <p><i>Tweets go here</i></p>
+                <app-tweet *ngFor="let t of tweets" [tweet]="t"></app-tweet>
             </div>
         </div>
     </div>

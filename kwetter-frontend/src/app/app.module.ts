@@ -14,6 +14,7 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { EditProfileComponent } from './components/edit-profile/edit-profile.component';
 import { ForbiddenComponent } from './components/forbidden/forbidden.component';
+import { TweetComponent } from './components/tweet/tweet.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { ForbiddenComponent } from './components/forbidden/forbidden.component';
     ProfileComponent,
     NotFoundComponent,
     EditProfileComponent,
-    ForbiddenComponent
+    ForbiddenComponent,
+    TweetComponent
   ],
   imports: [
     BrowserModule,

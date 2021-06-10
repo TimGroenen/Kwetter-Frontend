@@ -2,8 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { Profile } from 'src/app/models/profile/profile';
+import { Tweet } from 'src/app/models/tweet/tweet';
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { ProfileService } from 'src/app/services/profile/profile.service';
+import { TweetService } from 'src/app/services/tweet/tweet.service';
 
 @Component({
     selector: 'app-profile',
@@ -16,8 +18,9 @@ export class ProfileComponent implements OnInit {
     public followers?: Profile[];
     public isMyProfile = false;
     public isFollowing = false;
+    public tweets?: Tweet[];
 
-    constructor(private route: ActivatedRoute, private profileService: ProfileService, private router: Router, private authService: AuthService) {}
+    constructor(private route: ActivatedRoute, private profileService: ProfileService, private router: Router, private authService: AuthService, private tweetService: TweetService) {}
 
     ngOnInit(): void {
         this.route.params.subscribe(params => {
@@ -38,6 +41,11 @@ export class ProfileComponent implements OnInit {
                     } else {
                         this.isMyProfile = false;
                     }
+                    this.tweetService.getTweetsByProfileIds([ id ], tempProfile.id).subscribe(resp => {
+                        if(resp.ok && resp.body) {
+                            this.tweets = resp.body;
+                        }
+                    });
                 }
 
                 this.profile = resp.body;
