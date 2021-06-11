@@ -1,6 +1,6 @@
 <div class="row">
     <div class="col">
-        <div class="card">
+        <div class="card mb-2">
             <!--User-->
             <div class="card-header">
                 <h6>{{profile?.name}}</h6>
@@ -12,8 +12,8 @@
             <!--Likes-->
             <div class="card-footer">
                 <p>{{tweet.likes}} Likes</p>
-                <button (click)="like()" *ngIf="!tweet.isLiked" class="btn btn-primary">like</button>
-                <button (click)="unlike()" *ngIf="tweet.isLiked" class="btn btn-danger">unlike</button>
+                <button (click)="like()" *ngIf="!tweet.liked" class="btn btn-primary">like</button>
+                <button (click)="unlike()" *ngIf="tweet.liked" class="btn btn-danger">unlike</button>
             </div>
         </div>
     </div>

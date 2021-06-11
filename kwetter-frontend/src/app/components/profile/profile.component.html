@@ -21,8 +21,23 @@
 </div>
 <div class="row">
     <div class="col">
+        <!--Post new tweet-->
+        <div class="card mb-2" *ngIf="isMyProfile">
+            <div class="card-header">
+                <h6>What's happening?</h6>
+            </div>
+            <div class="card-body">
+                <form #f="ngForm" (ngSubmit)="onSubmit(f)" class="card-body">
+                    <div class="form-group">
+                        <label for="tweet">Post message</label>
+                        <input required ngModel name="tweet" id="tweet" #tweet="ngModel" type="textarea" class="form-control" required>
+                    </div>
+                    <button class="btn btn-primary">Post</button>
+                </form>
+            </div>
+        </div>
         <!-- tweets-->
-        <div class="card">
+        <div class="card mb-2">
             <div class="card-header">
                 <h6>Tweets</h6>
             </div>

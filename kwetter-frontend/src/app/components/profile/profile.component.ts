@@ -1,3 +1,4 @@
+import { NgForm } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
@@ -99,6 +100,18 @@ export class ProfileComponent implements OnInit {
                 console.log("Unfollowing user, response: " + resp.status);
                 if(this.profile){
                     console.log("reloading information");
+                    this.loadInformation(this.profile.id);
+                }
+            });
+        }
+    }
+
+    public onSubmit(form: NgForm) {
+        if(this.isMyProfile) {
+            //Send new tweet
+            this.tweetService.createTweet(this.profile.id, form.value.tweet).subscribe(resp => {
+                if(resp.ok) {
+                    console.log("New message sent!");
                     this.loadInformation(this.profile.id);
                 }
             });

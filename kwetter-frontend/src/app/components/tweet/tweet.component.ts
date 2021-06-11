@@ -31,7 +31,7 @@ export class TweetComponent implements OnInit {
             this.tweetService.like(profile.id, this.tweet.id).subscribe(resp => {
                 if(resp.ok) {
                     this.tweet.likes += 1;
-                    this.tweet.isLiked = true;
+                    this.tweet.liked = true;
                 }
             })
         }
@@ -44,7 +44,7 @@ export class TweetComponent implements OnInit {
             this.tweetService.unlike(profile.id, this.tweet.id).subscribe(resp => {
                 if(resp.ok) {
                     this.tweet.likes -= 1;
-                    this.tweet.isLiked = false;
+                    this.tweet.liked = false;
                 }
             })
         }
