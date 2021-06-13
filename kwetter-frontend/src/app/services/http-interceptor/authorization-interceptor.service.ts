@@ -21,7 +21,7 @@ export class AuthorizationInterceptorService implements HttpInterceptor {
                 })
             });
         } else {
-            clonedRequest = req.clone();
+            clonedRequest = req.clone({headers: req.headers.set("Arr-Disable-Session-Affinity", "True")});
         }
         return next.handle(clonedRequest);
     }
