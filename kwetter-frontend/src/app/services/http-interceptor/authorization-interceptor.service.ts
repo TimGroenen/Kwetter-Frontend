@@ -17,11 +17,11 @@ export class AuthorizationInterceptorService implements HttpInterceptor {
             clonedRequest = req.clone({
                 headers: new HttpHeaders({
                     'Authorization': authToken, 
-                    "Arr-Disable-Session-Affinity": "True"
+                    "Arr-Disable-Session-Affinity": "true"
                 })
             });
         } else {
-            clonedRequest = req.clone({headers: req.headers.set("Arr-Disable-Session-Affinity", "True")});
+            clonedRequest = req.clone({headers: req.headers.set("Arr-Disable-Session-Affinity", "true")});
         }
         return next.handle(clonedRequest);
     }
