@@ -8,7 +8,7 @@ import { Profile } from 'src/app/models/profile/profile';
     providedIn: 'root'
 })
 export class ProfileService {
-    private url: string = "gateway-service:8080/api/profile";
+    private url: string = "http://gateway-service:8080/api/profile";
 
     constructor(private httpClient: HttpClient) { }
 
