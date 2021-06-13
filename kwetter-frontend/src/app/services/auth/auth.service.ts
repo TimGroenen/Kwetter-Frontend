@@ -9,7 +9,7 @@ import { Auth } from '../../models/auth/auth';
   providedIn: 'root'
 })
 export class AuthService {
-    private accountUrl = 'http://gateway-service:8080/api/user';
+    private accountUrl = 'http://20.79.100.189:8080/api/user';
     private loggedInUsername = "";
 
     constructor(private httpClient: HttpClient) { }

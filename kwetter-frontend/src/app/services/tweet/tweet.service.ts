@@ -10,7 +10,7 @@ import { Tweet } from 'src/app/models/tweet/tweet';
     providedIn: 'root'
 })
 export class TweetService {
-    private url: string = "http://gateway-service:8080/api/tweet";
+    private url: string = "http://20.79.100.189:8080/api/tweet";
 
     constructor(private httpClient: HttpClient) { }
 
