@@ -1,4 +1,4 @@
-import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from '@angular/common/http';
+import { HttpEvent, HttpHandler, HttpHeaders, HttpInterceptor, HttpRequest } from '@angular/common/http';
 import { forwardRef, Inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { AuthService } from '../auth/auth.service';
@@ -14,7 +14,12 @@ export class AuthorizationInterceptorService implements HttpInterceptor {
         const authToken = this.authManager.getAccountToken();
         let clonedRequest: HttpRequest<any>;
         if (authToken) {
-            clonedRequest = req.clone({headers: req.headers.set('Authorization', authToken)});
+            clonedRequest = req.clone({
+                headers: new HttpHeaders({
+                    'Authorization': authToken, 
+                    "Arr-Disable-Session-Affinity": "True"
+                })
+            });
         } else {
             clonedRequest = req.clone();
         }
