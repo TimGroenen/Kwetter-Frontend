@@ -9,7 +9,7 @@ import { Auth } from '../../models/auth/auth';
   providedIn: 'root'
 })
 export class AuthService {
-    private accountUrl = 'http://10.0.250.36:8080/api/user';
+    private accountUrl = '10.0.250.36:8080/api/user';
     private loggedInUsername = "";
 
     constructor(private httpClient: HttpClient) { }
