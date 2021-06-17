@@ -1,7 +1,7 @@
 <div class="row">
     <!--Left-->
     <div class="col">
-        <div class="card mb-2">
+        <div class="card mb-2 mt-2">
             <!--Post new tweet-->
             <div class="card-header">
                 <h6>What's happening?</h6>
@@ -15,20 +15,20 @@
                     <button class="btn btn-primary">Post</button>
                 </form>
             </div>
-            <!--Timeline-->
-            <div class="card m-2">
-                <div class="card-header">
-                    <h6>Timeline</h6>
-                </div>
-                <div class="card-body">
-                    <app-tweet *ngFor="let t of tweets" [tweet]="t"></app-tweet>
-                </div>
+        </div>
+        <!--Timeline-->
+        <div class="card m-2">
+            <div class="card-header">
+                <h6>Timeline</h6>
+            </div>
+            <div class="card-body">
+                <app-tweet *ngFor="let t of tweets" [tweet]="t"></app-tweet>
             </div>
         </div>
     </div>
     <!--Right-->
     <div class="col">
-        <div class="card mb-2">
+        <div class="card mb-2 mt-2">
             <div class="card-body">
                 <!--Your last tweet-->
                 <div class="row">
