@@ -12,9 +12,13 @@
             <!--Likes-->
             <div class="card-footer">
                 <div class="row">
-                    <button (click)="like()" *ngIf="!tweet.liked" class="btn btn-primary">like</button>
-                    <button (click)="unlike()" *ngIf="tweet.liked" class="btn btn-danger">unlike</button>
-                    <p style="max-width: 50%;">{{tweet.likes}} Likes</p>
+                    <div class="col">
+                        <button (click)="like()" *ngIf="!tweet.liked" class="btn btn-primary">like</button>
+                        <button (click)="unlike()" *ngIf="tweet.liked" class="btn btn-danger">unlike</button>
+                    </div>
+                    <div class="col">
+                        <p>{{tweet.likes}} Likes</p>
+                    </div>
                 </div>
             </div>
         </div>
