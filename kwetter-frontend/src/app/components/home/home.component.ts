@@ -29,6 +29,8 @@ export class HomeComponent implements OnInit {
                 if(resp.ok && resp.body) {
                     this.followers = resp.body;
                 }
+            }, error => {
+                this.router.navigateByUrl("/notFound");
             });
             this.profileService.getFollowed(this.profile.id).subscribe(resp => {
                 if(resp.ok && resp.body) {
@@ -45,11 +47,13 @@ export class HomeComponent implements OnInit {
                             this.tweets = tweetResp.body;
                             this.lastTweet = this.tweets.find(t => t.profileId == this.profile.id);
                         }
+                    }, error => {
+                        this.router.navigateByUrl("/notFound");
                     });
                 }
+            }, error => {
+                this.router.navigateByUrl("/notFound");
             });
-        } else  {
-            this.router.navigateByUrl("/notfound");
         }
     }
 
