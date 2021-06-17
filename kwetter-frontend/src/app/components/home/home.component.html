@@ -8,7 +8,7 @@
             </div>
             <div class="card-body">
                 <form #f="ngForm" (ngSubmit)="onSubmit(f)" class="card-body">
-                    <div class="form-group">
+                    <div class="form-group m-2">
                         <label for="tweet">Post message</label>
                         <input required ngModel name="tweet" id="tweet" #tweet="ngModel" type="textarea" class="form-control" required>
                     </div>
@@ -16,7 +16,7 @@
                 </form>
             </div>
             <!--Timeline-->
-            <div class="card mb-2">
+            <div class="card m-2">
                 <div class="card-header">
                     <h6>Timeline</h6>
                 </div>
@@ -32,15 +32,15 @@
             <div class="card-body">
                 <!--Your last tweet-->
                 <div class="row">
-                    <p>Your tweets </p>
+                    <p>Your last tweet:</p>
                     <app-tweet [tweet]="lastTweet"></app-tweet>
                 </div>
                 <div class="row">
                     <div class="col">
-                        <p>Following {{following?.length}}</p>
+                        <p>Following: {{following?.length}}</p>
                     </div>
                     <div class="col">
-                        <p>Followers {{followers?.length}}</p>
+                        <p>Followers: {{followers?.length}}</p>
                     </div>
                 </div>
             </div>
