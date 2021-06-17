@@ -7,13 +7,15 @@
             </div>
             <!--Content-->
             <div class="card-body">
-                <p>{{tweet.content}}</p>
+                <p>{{tweet?.content}}</p>
             </div>
             <!--Likes-->
             <div class="card-footer">
-                <p>{{tweet.likes}} Likes</p>
-                <button (click)="like()" *ngIf="!tweet.liked" class="btn btn-primary">like</button>
-                <button (click)="unlike()" *ngIf="tweet.liked" class="btn btn-danger">unlike</button>
+                <div class="row">
+                    <button (click)="like()" *ngIf="!tweet.liked" class="btn btn-primary">like</button>
+                    <button (click)="unlike()" *ngIf="tweet.liked" class="btn btn-danger">unlike</button>
+                    <p style="max-width: 50%;">{{tweet.likes}} Likes</p>
+                </div>
             </div>
         </div>
     </div>
