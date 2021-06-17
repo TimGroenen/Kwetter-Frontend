@@ -14,11 +14,11 @@ templateUrl: './home.component.html',
 styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-    public profile: Profile;
-    public following: Profile[];
-    public followers: Profile[];
-    public tweets: Tweet[];
-    public lastTweet: Tweet;
+    public profile?: Profile;
+    public following?: Profile[];
+    public followers?: Profile[];
+    public tweets?: Tweet[];
+    public lastTweet?: Tweet;
 
     constructor(private httpClient: HttpClient, private profileService: ProfileService, private router: Router, private authService: AuthService, private tweetService: TweetService) { }
 
