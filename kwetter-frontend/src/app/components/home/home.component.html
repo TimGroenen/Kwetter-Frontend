@@ -1,1 +1,60 @@
-<p>home works!</p>
+<div class="row">
+    <!--Left-->
+    <div class="col">
+        <div class="card mb-2">
+            <!--Post new tweet-->
+            <div class="card-header">
+                <h6>What's happening?</h6>
+            </div>
+            <div class="card-body">
+                <form #f="ngForm" (ngSubmit)="onSubmit(f)" class="card-body">
+                    <div class="form-group">
+                        <label for="tweet">Post message</label>
+                        <input required ngModel name="tweet" id="tweet" #tweet="ngModel" type="textarea" class="form-control" required>
+                    </div>
+                    <button class="btn btn-primary">Post</button>
+                </form>
+            </div>
+            <!--Timeline-->
+            <div class="card mb-2">
+                <div class="card-header">
+                    <h6>Timeline</h6>
+                </div>
+                <div class="card-body">
+                    <app-tweet *ngFor="let t of tweets" [tweet]="t"></app-tweet>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Right-->
+    <div class="col">
+        <div class="card mb-2">
+            <div class="card-body">
+                <!--Your last tweet-->
+                <div class="row">
+                    <p>Your tweets </p>
+                    <app-tweet [tweet]="lastTweet"></app-tweet>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <p>Following {{following?.length}}</p>
+                    </div>
+                    <div class="col">
+                        <p>Followers {{followers?.length}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card mb-2">
+            <div class="card-body">
+                <h6>Trends</h6>
+                <ul>
+                    <li>#Glassfish</li>
+                    <li>#EJB</li>
+                    <li>#JPA</li>
+                    <li>#JSF</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
